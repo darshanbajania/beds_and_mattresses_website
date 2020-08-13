@@ -202,7 +202,7 @@ def Login_View(request):
                 user_id.new_user_id = str(int(user_id.new_user_id)+1)
                 user_id.save()
             
-            if (username == 'admin'):  # if user is admin redirect it to admin_page
+            if (username == 'admins'):  # if user is admin redirect it to admin_page
                 return redirect('sleeping_beds:admin_page')
             else:
                 return redirect('sleeping_beds:home')  # else to the user profile
