@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime 
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -22,7 +23,7 @@ class Customers(models.Model):
 class Products(models.Model):
     product_id = models.CharField(max_length=10)
     product_name = models.CharField(max_length=300)
-    product_image = models.ImageField(default="product.jpg",upload_to="product_images")
+    product_image = CloudinaryField('avatar')
     description = models.CharField(default="product description", max_length=1500)
     price = models.CharField(default='100', max_length=20)
     availability = models.CharField(default="No", max_length=10)
@@ -49,9 +50,9 @@ class Purchase_details(models.Model):
         return f'{self.purchase_id}'
 
 class Home_page_images(models.Model):
-    Image1 = models.ImageField(default = "default.jpg", upload_to="carousal_images")
-    Image2 = models.ImageField(default = "default.jpg", upload_to="carousal_images")
-    Image3 = models.ImageField(default = "default.jpg", upload_to="carousal_images")
+    Image1 = CloudinaryField('avatar')
+    Image2 = CloudinaryField('avatar')
+    Image3 = CloudinaryField('avatar')
 
     def __str__(self):
         return f'Home page Images'

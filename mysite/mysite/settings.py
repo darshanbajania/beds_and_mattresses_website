@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import cloudinary
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
@@ -40,7 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sleeping_beds',
     'crispy_forms',
+    'cloudinary',
 ]
+
+#add config 
+cloudinary.config(
+  cloud_name = 'darshan1999',
+  api_key = '914179865436577',
+  api_secret = '4cz-_JUUtXQmRk_L6FbWvZbNgq0',
+  secure = True
+)
+
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,6 +78,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
