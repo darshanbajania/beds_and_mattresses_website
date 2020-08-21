@@ -45,19 +45,19 @@
                         Beds
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Single</a>
-                        <a class="dropdown-item" href="#">Double</a>
-                        <a class="dropdown-item" href="#">King</a>
-                        <a class="dropdown-item" href="#">Super King</a>
+                        <a class="dropdown-item" href="{% url 'sleeping_beds:single' %}">Single</a>
+                        <a class="dropdown-item" href="{% url 'sleeping_beds:double' %}">Double</a>
+                        <a class="dropdown-item" href="{% url 'sleeping_beds:king' %}">King</a>
+                        <a class="dropdown-item" href="{% url 'sleeping_beds:super' %}">Super King</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Mattresses
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Orthopedic/Memory Foam</a>
-                        <a class="dropdown-item" href="#">1000 profit matrices</a>
-                        <a class="dropdown-item" href="#">2000 profit matrices</a>
+                        <a class="dropdown-item" href="{% url 'sleeping_beds:orthopedic' %}">Orthopedic/Memory Foam</a>
+                        <a class="dropdown-item" href="{% url 'sleeping_beds:profit_1000' %}">1000 profit matrices</a>
+                        <a class="dropdown-item" href="{% url 'sleeping_beds:profit_2000' %}">2000 profit matrices</a>
 
                     </li>
                     <li class="nav-item">
@@ -76,7 +76,7 @@
                             </a>
                         </li>
                         {% if user.is_authenticated %}
-                        {% if user.username == "admin"%}
+                        {% if user.username == "admin2"%}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {{user.username}}

@@ -27,6 +27,7 @@ class Products(models.Model):
     description = models.CharField(default="product description", max_length=1500)
     price = models.CharField(default='100', max_length=20)
     availability = models.CharField(default="No", max_length=10)
+    product_type = models.CharField(default="NO type", max_length=100)
     stock = models.IntegerField(default="0")
 
 

@@ -106,7 +106,7 @@
                                 <h1 class="card-title">{{product_preview.product_name}}</h1>
                                 <h2>Product Description</h2>
                                 <p> {{product_preview.description}} </p>
-                                <h2>Details</h2>
+                                {% comment %} <h2>Details</h2>
                                 <ul>
                                     <li>
                                         <p> Instant Germ Kill Spray that kills 99.9% bacteria and viruses (as per lab
@@ -132,7 +132,7 @@
                                     <li>
                                         <p>Refreshing fragrance</p>
                                     </li>
-                                </ul>
+                                </ul> {% endcomment %}
                                 Current Stock: {{product_preview.stock}}
                                 Price: €{{product_preview.price}}
 

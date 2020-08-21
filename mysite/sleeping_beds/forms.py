@@ -12,7 +12,7 @@ class Update_Product_Form(forms.ModelForm):
     class Meta:
         product_image = forms.ImageField(required=False)
         model = Products
-        fields = ['product_name', 'product_image', 'description', 'stock', 'availability', 'price']
+        fields = ['product_name', 'product_image', 'description', 'product_type', 'stock', 'availability', 'price']
 
 
 class Update_Home_images(forms.ModelForm):

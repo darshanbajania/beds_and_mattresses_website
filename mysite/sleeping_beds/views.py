@@ -98,6 +98,147 @@ def Product_view(request):
 
     return render(request,'sleeping_beds/product_view.html',context)
 
+def Single_bed_view(request):
+    beds = Products.objects.filter(product_type = 'single')
+    if request.method == "POST":
+        product_number = request.POST.get('id')
+        # getting the url for displaying full proposal
+        # print(product_number)
+        base_url = reverse('sleeping_beds:Products_view')
+        # creating a string of dictionary
+        query_string = urlencode({'category': product_number})
+        # passing the base_url and query from this page to url
+        url = '{}?{}'.format(base_url, query_string)
+
+        # print(proposal_number)
+        return redirect(url)
+
+    context = {
+        'beds': beds,
+    }
+    return render(request, 'sleeping_beds/selected_products.html', context)
+
+def Double_bed_view(request):
+    beds = Products.objects.filter(product_type = 'double')
+    if request.method == "POST":
+        product_number = request.POST.get('id')
+        # getting the url for displaying full proposal
+        # print(product_number)
+        base_url = reverse('sleeping_beds:Products_view')
+        # creating a string of dictionary
+        query_string = urlencode({'category': product_number})
+        # passing the base_url and query from this page to url
+        url = '{}?{}'.format(base_url, query_string)
+
+        # print(proposal_number)
+        return redirect(url)
+
+    context = {
+        'beds': beds,
+    }
+
+    return render(request, 'sleeping_beds/selected_products.html', context)
+
+def King_bed_view(request):
+    beds = Products.objects.filter(product_type = 'King')
+    if request.method == "POST":
+        product_number = request.POST.get('id')
+        # getting the url for displaying full proposal
+        # print(product_number)
+        base_url = reverse('sleeping_beds:Products_view')
+        # creating a string of dictionary
+        query_string = urlencode({'category': product_number})
+        # passing the base_url and query from this page to url
+        url = '{}?{}'.format(base_url, query_string)
+
+        # print(proposal_number)
+        return redirect(url)
+
+    context = {
+        'beds': beds,
+    }
+    return render(request, 'sleeping_beds/selected_products.html', context)
+
+def Super_bed_view(request):
+    beds = Products.objects.filter(product_type = 'Super')
+    if request.method == "POST":
+        product_number = request.POST.get('id')
+        # getting the url for displaying full proposal
+        # print(product_number)
+        base_url = reverse('sleeping_beds:Products_view')
+        # creating a string of dictionary
+        query_string = urlencode({'category': product_number})
+        # passing the base_url and query from this page to url
+        url = '{}?{}'.format(base_url, query_string)
+
+        # print(proposal_number)
+        return redirect(url)
+
+    context = {
+        'beds': beds,
+    }
+    return render(request, 'sleeping_beds/selected_products.html', context)
+
+def Orthopedic_mattress_view(request):
+    beds = Products.objects.filter(product_type = 'orthopedic')
+    if request.method == "POST":
+        product_number = request.POST.get('id')
+        # getting the url for displaying full proposal
+        # print(product_number)
+        base_url = reverse('sleeping_beds:Products_view')
+        # creating a string of dictionary
+        query_string = urlencode({'category': product_number})
+        # passing the base_url and query from this page to url
+        url = '{}?{}'.format(base_url, query_string)
+
+        # print(proposal_number)
+        return redirect(url)
+
+    context = {
+        'beds': beds,
+    }
+    return render(request, 'sleeping_beds/selected_products.html', context)
+
+def a1000_profit_mattress_view(request):
+    beds = Products.objects.filter(product_type = '1000 profit')
+    if request.method == "POST":
+        product_number = request.POST.get('id')
+        # getting the url for displaying full proposal
+        # print(product_number)
+        base_url = reverse('sleeping_beds:Products_view')
+        # creating a string of dictionary
+        query_string = urlencode({'category': product_number})
+        # passing the base_url and query from this page to url
+        url = '{}?{}'.format(base_url, query_string)
+
+        # print(proposal_number)
+        return redirect(url)
+
+    context = {
+        'beds': beds,
+    }
+    return render(request, 'sleeping_beds/selected_products.html', context)
+
+def a2000_profit_mattress_view(request):
+    beds = Products.objects.filter(product_type = '2000 profit')
+    if request.method == "POST":
+        product_number = request.POST.get('id')
+        # getting the url for displaying full proposal
+        # print(product_number)
+        base_url = reverse('sleeping_beds:Products_view')
+        # creating a string of dictionary
+        query_string = urlencode({'category': product_number})
+        # passing the base_url and query from this page to url
+        url = '{}?{}'.format(base_url, query_string)
+
+        # print(proposal_number)
+        return redirect(url)
+
+    context = {
+        'beds': beds,
+    }
+    return render(request, 'sleeping_beds/selected_products.html', context)
+
 # about us page
 def About_us_view(request):
     purchased_items=''
@@ -519,37 +660,32 @@ def Admin_product_update_view(request):
         p_u_form = Update_Product_Form()
         p_c_form = Update_Product_Form(instance=temp_object)
         h_i_form = Update_Home_images(instance=image_object)
-        print("temp object",temp_object.product_id)
+        # print("temp object",temp_object.product_id)
+        # print(request.method)
         if request.method == 'POST':  # for creating an instance of profile update form with passed details
             form_product_id = request.POST.get('product')
-            if form_product_id == None:
-                form_product_id='1'
-            if int(form_product_id) >0 and int(form_product_id)<=Products.objects.all().count():
-                print(form_product_id)
-                # getting the url for displaying full proposal
-                # print(product_number)
-                base_url = reverse('sleeping_beds:admin_product_detail_update')
-                # creating a string of dictionary
-                query_string = urlencode({'category': form_product_id})
-                # passing the base_url and query from this page to url
-                url = '{}?{}'.format(base_url, query_string)
+            print('form_product_id',form_product_id)
 
-                # print(proposal_number)
-                return redirect(url)
+
             # temp_object = Products.objects.filter(product_id=form_product_id).first()
-            
+            print('hello world')
             full_form_value=request.POST.get('full_form')
             blank_form_value=request.POST.get('blank_form')
             image_form_value = request.POST.get('image_form')
-            
+            print('hello',blank_form_value)
             
             if blank_form_value=="1":
                 p_u_form = Update_Product_Form(request.POST,
                                         request.FILES)
 
-            
+                print(p_u_form.is_valid())
                 if p_u_form.is_valid():  # if form is valid then save it
                     p_u_form.save()  # and give a success messsage
+                temp = Products.objects.filter(product_id='').first()
+                temp.product_id = str(Products.objects.count())
+                temp.save()
+                print(temp.product_name)
+
                 return redirect('sleeping_beds:product_update')
             p_c_form =Update_Product_Form(instance=temp_object)
             # if full_form_value=='2':    
@@ -572,6 +708,20 @@ def Admin_product_update_view(request):
                 if h_i_form.is_valid():  # if form is valid then save it
                     h_i_form.save()  # and give a success messsage
                 return redirect('sleeping_beds:product_update')
+            if form_product_id == None:
+                form_product_id='1'
+            if int(form_product_id) >0 and int(form_product_id)<=Products.objects.all().count():
+                print(form_product_id)
+                # getting the url for displaying full proposal
+                # print(product_number)
+                base_url = reverse('sleeping_beds:admin_product_detail_update')
+                # creating a string of dictionary
+                query_string = urlencode({'category': form_product_id})
+                # passing the base_url and query from this page to url
+                url = '{}?{}'.format(base_url, query_string)
+
+                # print(proposal_number)
+                return redirect(url)
         else:  # create an instance of form with current details
             # temp_object = Products.objects.filter(product_id='1').first()
             p_u_form = Update_Product_Form()

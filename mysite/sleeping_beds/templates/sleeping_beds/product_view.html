@@ -110,32 +110,8 @@
                 <div class="container">
                     <h1 class="card-title">{{clicked_items.product_name}}</h1>
                     <h2>Product Description</h2>
-                    <p>While we always remember to sanitize our hands, we often forget about germs on surfaces that are
-                        frequently touched. Mobile phones, tables, door knobs or toys that kids play with may also carry
-                        harmful bacteria & viruses. </p>
-                    <h2>Details</h2>
-                    <ul>
-                        <li>
-                            <p> Instant Germ Kill Spray that kills 99.9% bacteria and viruses (as per lab test on
-                                representative organism) </p>
-                        </li>
-                        <li>
-                            <p> illness causing bacteria and viruses (as per lab test on representative organism)</p>
-                        </li>
-                        <li>
-                            <p>Safe to use on skin & surfaces (Do not use on copper, brass, painted or lacquered or
-                                varnished surfaces, acrylic plastics and electrical devices.)</p>
-                        </li>
-                        <li>
-                            <p>No wiping required</p>
-                        </li>
-                        <li>
-                            <p>Easy to carry anywhere, gives on the go protection</p>
-                        </li>
-                        <li>
-                            <p>Refreshing fragrance</p>
-                        </li>
-                    </ul>
+                    {{clicked_items.description}}
+                    <br>
                     {% if clicked_items.stock == 0 %}
                     <p class="text-danger">Out of stock</p><br>
                     Price: €{{clicked_items.price}}<br>
